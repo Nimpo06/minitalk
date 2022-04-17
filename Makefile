@@ -6,7 +6,7 @@
 #    By: sihemayoub <sihemayoub@student.42.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/15 19:29:12 by sihemayoub        #+#    #+#              #
-#    Updated: 2022/04/17 13:50:38 by sihemayoub       ###   ########.fr        #
+#    Updated: 2022/04/17 14:00:02 by sihemayoub       ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,3 +35,4 @@ bonus :
 		gcc -Wall -Werror -Wextra bonus/client.c libft/libft.a -o $(NAME2)
 
 .PHONY:	all clean fclean re
+
