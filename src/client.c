@@ -6,7 +6,7 @@
 /*   By: sihemayoub <sihemayoub@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/16 14:33:56 by sihemayoub        #+#    #+#             */
-/*   Updated: 2022/04/16 15:30:06 by sihemayoub       ###   ########.fr       */
+/*   Updated: 2022/04/22 14:53:36 by mayoub           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ void	send_message(int pid, char *my_message, size_t message_len)
 		shift = 0;
 		while (shift < 7)
 		{
-			if((my_message[i] >> shift) & 1)
+			if ((my_message[i] >> shift) & 1)
 				kill(pid, SIGUSR2);
-			else	
+			else
 				kill(pid, SIGUSR1);
 			shift++;
 			usleep(70);
@@ -36,7 +36,7 @@ void	send_message(int pid, char *my_message, size_t message_len)
 
 int	main(int argc, char **argv)
 {
-	int pid;
+	int	pid;
 
 	if (argc == 3)
 	{
@@ -45,5 +45,5 @@ int	main(int argc, char **argv)
 	}
 	else
 		ft_putstr("please tape : ./client <Server : PID> <Your message>\n");
-	return(0);
+	return (0);
 }

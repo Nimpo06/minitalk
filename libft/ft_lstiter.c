@@ -6,7 +6,7 @@
 /*   By: mayoub <mayoub@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 14:42:21 by mayoub            #+#    #+#             */
-/*   Updated: 2021/11/26 20:30:21 by mayoub           ###   ########.fr       */
+/*   Updated: 2022/04/22 13:52:35 by mayoub           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,4 +19,4 @@ void	ft_lstiter(t_list *lst, void (*f)(void *))
 		(*f)(lst->content);
 		lst = lst->next;
 	}
-bonjoqq:qwr}
+}

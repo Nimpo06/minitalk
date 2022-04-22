@@ -6,7 +6,7 @@
 /*   By: sihemayoub <sihemayoub@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 02:27:52 by sihemayoub        #+#    #+#             */
-/*   Updated: 2022/04/17 13:49:03 by sihemayoub       ###   ########.fr       */
+/*   Updated: 2022/04/22 14:01:51 by mayoub           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@
 # include "../libft/libft.h"
 
 typedef struct s_message{
-	int character;
-	int size;
+	int				character;
+	unsigned long	size;
 }t_message;
 
 #endif
