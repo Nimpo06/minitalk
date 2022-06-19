@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   client.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sihemayoub <sihemayoub@student.42.fr>      +#+  +:+       +#+        */
+/*   By: mayoub <mayoub@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/16 14:33:56 by sihemayoub        #+#    #+#             */
-/*   Updated: 2022/04/22 14:53:36 by mayoub           ###   ########.fr       */
+/*   Updated: 2022/06/19 13:10:04 by mayoub           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ void	send_message(int pid, char *my_message, size_t message_len)
 			shift++;
 			usleep(70);
 		}
-		i++;
 	}
 }
 
