@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mayoub <mayoub@student.42.fr>              +#+  +:+       +#+        */
+/*   By: noalexan <noalexan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 14:34:34 by mayoub            #+#    #+#             */
-/*   Updated: 2021/11/03 18:35:03 by mayoub           ###   ########.fr       */
+/*   Updated: 2023/10/04 11:10:21 by noalexan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ char	**ft_split(char const *s, char c)
 	if (!s || !result)
 		return (0);
 	while (i <= ft_strlen(s))
-	{	
+	{
 		if (s[i] != c && trigger < 0)
 			trigger = i;
 		else if ((s[i] == c || i == ft_strlen(s)) && trigger >= 0)

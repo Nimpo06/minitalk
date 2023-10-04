@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mayoub <mayoub@student.42.fr>              +#+  +:+       +#+        */
+/*   By: noalexan <noalexan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/29 16:59:20 by mayoub            #+#    #+#             */
-/*   Updated: 2021/12/02 22:29:40 by mayoub           ###   ########.fr       */
+/*   Updated: 2023/10/04 11:41:24 by noalexan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 	return (cpy);
 }
 
-int	main(void)
-{
-	printf("%s", ft_strtrim("obonjouro", "o"));
-	return (0);
-}
+// int	main(void)
+// {
+// 	printf("%s", ft_strtrim("obonjouro", "o"));
+// 	return (0);
+// }
