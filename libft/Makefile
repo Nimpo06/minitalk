@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: sihemayoub <sihemayoub@student.42.fr>      +#+  +:+       +#+         #
+#    By: noalexan <noalexan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/25 14:13:19 by mayoub            #+#    #+#              #
-#    Updated: 2022/04/15 20:08:40 by sihemayoub       ###   ########.fr        #
+#    Updated: 2023/10/04 14:25:57 by noalexan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,6 @@ SRCS	= ft_atoi.c \
 		  ft_putchar.c \
 		  ft_putendl_fd.c \
 		  ft_putnbr_fd.c \
-		  ft_putnbr.c \
 		  ft_putstr_fd.c \
 		  ft_putstr.c \
 		  ft_split.c \
@@ -68,16 +67,12 @@ CC		= gcc
 
 CFLAGS	= -Werror -Wall -Wextra
 
-AR		= ar rc
+AR		= ar rcs
 
 RM		= rm -rf
 
-.c_to_.o:
-			${CC} ${CFLAGS} -o $< ${<:.c=.o}
-
 ${NAME}:	${OBJS}
 			${AR} ${NAME} ${OBJS}
-			ranlib ${NAME}
 
 all:		${NAME}
 

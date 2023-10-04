@@ -3,36 +3,53 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: sihemayoub <sihemayoub@student.42.fr>      +#+  +:+       +#+         #
+#    By: noalexan <noalexan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/15 19:29:12 by sihemayoub        #+#    #+#              #
-#    Updated: 2022/04/22 14:58:23 by mayoub           ###   ########.fr        #
+#    Updated: 2023/10/04 14:18:17 by noalexan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME1 = server
+CC=gcc
+CFLAGS=-Werror -Wextra -Wall -Ilibft -Ift_printf
 
-NAME2 = client
+TARGET1=server
 
-all	:
-		@make -C libft
-		@gcc -Wall -Werror -Wextra src/server.c libft/libft.a -o $(NAME1)
-		@gcc -Wall -Werror -Wextra src/client.c libft/libft.a -o $(NAME2)
+TARGET1_SRC=$(addprefix src/, server.c)
+TARGET1_OBJ=$(TARGET1_SRC:.c=.o)
 
-clean :
-		@make clean -C libft
-		@rm -rf server.o client.o
+TARGET2=client
 
-fclean : clean
-		 @make clean -C libft
-		 @rm -rf $(NAME1) $(NAME2)
+TARGET2_SRC=$(addprefix src/, client.c)
+TARGET2_OBJ=$(TARGET2_SRC:.c=.o)
 
-re :	fclean all
+LIBFT=libft/libft.a
+LIBFTPRINTF=ft_printf/libftprintf.a
 
-bonus : fclean
-		@make -C libft
-		@gcc -Wall -Werror -Wextra bonus/server.c libft/libft.a -o $(NAME1)
-		@gcc -Wall -Werror -Wextra bonus/client.c libft/libft.a -o $(NAME2)
+all: $(TARGET1) $(TARGET2)
+
+$(TARGET1): $(LIBFT) $(LIBFTPRINTF) $(TARGET1_OBJ)
+	$(CC) $(CFLAGS) $(TARGET1_OBJ) $(LIBFT) $(LIBFTPRINTF) -o $(TARGET1)
+
+$(TARGET2): $(LIBFT) $(LIBFTPRINTF) $(TARGET2_OBJ)
+	$(CC) $(CFLAGS) $(TARGET2_OBJ) $(LIBFT) $(LIBFTPRINTF) -o $(TARGET2)
+
+$(LIBFT):
+	make -C libft
+
+$(LIBFTPRINTF):
+	make -C ft_printf
+
+clean:
+	make clean -C libft
+	make clean -C ft_printf
+	rm -rf $(TARGET1_OBJ) $(TARGET2_OBJ)
+
+fclean: clean
+	make fclean -C libft
+	make fclean -C ft_printf
+	rm -rf $(TARGET1) $(TARGET2)
+
+re:	fclean all
 
 .PHONY:	all clean fclean re
-

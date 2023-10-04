@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   server.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sihemayoub <sihemayoub@student.42.fr>      +#+  +:+       +#+        */
+/*   By: noalexan <noalexan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 20:06:29 by sihemayoub        #+#    #+#             */
-/*   Updated: 2022/04/22 14:59:39 by mayoub           ###   ########.fr       */
+/*   Updated: 2023/10/04 15:44:14 by noalexan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,32 +16,26 @@ static t_message	g_message;
 
 void	bit_management(int bit)
 {
-	g_message.character += ((bit & 1) << g_message.size);
-	g_message.size++;
-	if (g_message.size == 7)
-	{
-		ft_putchar(g_message.character);
-		if (!g_message.character)
-			ft_putchar('\n');
-		g_message.character = 0;
-		g_message.size = 0;
-	}
+	g_message.character <<= 1;
+	g_message.character |= bit == SIGUSR2;
+	g_message.length++;
 }
 
 int	main(void)
 {
-	int	pid;
-	int	bit;
-
-	bit = 0;
-	pid = getpid();
-	ft_putstr("actual PID : ");
-	ft_putnbr(pid);
-	ft_putchar('\n');
+	ft_printf("actual PID : %i\n", getpid());
+	signal(SIGUSR1, bit_management);
+	signal(SIGUSR2, bit_management);
 	while (1)
 	{
-		signal(SIGUSR2, bit_management);
-		signal(SIGUSR1, bit_management);
 		pause();
+		if (g_message.length == 8)
+		{
+			if (g_message.character != '\0')
+				write(1, &g_message.character, 1);
+			else
+				write(1, "\n", 1);
+			g_message.length = 0;
+		}
 	}
 }
